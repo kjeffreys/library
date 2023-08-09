@@ -1,0 +1,23 @@
+# Binaries, plugins, libs
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+
+# Logs
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Go-specific
+bin/
+pkg/
+vendor/
+
+# IDE-specific
+.vscode/
+.idea/
+*.iml

@@ -65,22 +65,22 @@ library/
       }
       ```
     - **Response**:
-    - 400 Bad Request: Invalid request payload
-    - 500 Internal Server Error: Failed to insert book
-    - 200 OK: Returns the created book's details, including its ID.
+    - `400 Bad Request` status for invalid request payload
+    - `500 Internal Server Error` status for failed book insertion
+    - `200 OK` status with the created book's details, including its ID.
 
 2. **Get All Books**
     - **Endpoint**: `GET /books`
     - **Response**:
-    - 500 Internal Server Error: Failed to retrieve books
-    - 200 OK: Returns a list of all books' details.
+    - `500 Internal Server Error` status for failed book retrieval
+    - `200 OK` status with a list of all books' details.
 
 3. **Get a Specific Book**
     - **Endpoint**: `GET /books/{id}`
     - **Parameters**: `id` (path parameter) - ID of the book to be retrieved.
     - **Response**:
-    - 404 Not Found: Book not found
-    - 200 OK: Returns the details of the requested book.
+    - `404 Not Found` status for book not found
+    - `200 OK` status with the details of the requested book.
 
 4. **Update a Book**
     - **Endpoint**: `PUT /books/{id}`
@@ -96,9 +96,9 @@ library/
       }
       ```
     - **Response**:
-    - 400 Bad Request: Invalid request payload
-    - 500 Internal Server Error: Failed to update book
-    - 200 OK: Returns the updated book's details.
+    - `400 Bad Request` status for invalid request payload
+    - `500 Internal Server Error` status for failed book update
+    - `200 OK` status with the updated book's details.
 
 5. **Delete a Book**
     - **Endpoint**: `DELETE /books/{id}`
@@ -110,15 +110,9 @@ library/
 #### Middlewares & Utilities
 
 - **Logging Middleware**: This middleware logs details of every API request. Check `middlewares/logging.go` for implementation.
-
 ---
-
-Feel free to expand and customize the API as per your needs. Happy coding!
-
----
-
 #### Improvement 1
 For the sake of simplicity, the handlers just connect to the database setup in `database/connection.go`. However, for scalable solutions and better testing, this can be adjusted to have the handlers accept a database as an argument. This allows easier swapping between various real and test/mock databases.
-
+---
 #### Improvement 2
 Another improvement is to deploy the entire environment in Docker and/or use an orchestration tool like Kubernetes (k8s).

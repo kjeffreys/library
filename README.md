@@ -64,16 +64,23 @@ library/
           "summary": "Sample Summary"
       }
       ```
-    - **Response**: Returns the created book's details, including its ID.
+    - **Response**:
+    - 400 Bad Request: Invalid request payload
+    - 500 Internal Server Error: Failed to insert book
+    - 200 OK: Returns the created book's details, including its ID.
 
 2. **Get All Books**
     - **Endpoint**: `GET /books`
-    - **Response**: Returns a list of all books' details.
+    - **Response**:
+    - 500 Internal Server Error: Failed to retrieve books
+    - 200 OK: Returns a list of all books' details.
 
 3. **Get a Specific Book**
     - **Endpoint**: `GET /books/{id}`
     - **Parameters**: `id` (path parameter) - ID of the book to be retrieved.
-    - **Response**: Returns the details of the requested book.
+    - **Response**:
+    - 404 Not Found: Book not found
+    - 200 OK: Returns the details of the requested book.
 
 4. **Update a Book**
     - **Endpoint**: `PUT /books/{id}`
@@ -88,7 +95,10 @@ library/
           "summary": "Updated Summary"
       }
       ```
-    - **Response**: Returns the updated book's details.
+    - **Response**:
+    - 400 Bad Request: Invalid request payload
+    - 500 Internal Server Error: Failed to update book
+    - 200 OK: Returns the updated book's details.
 
 5. **Delete a Book**
     - **Endpoint**: `DELETE /books/{id}`

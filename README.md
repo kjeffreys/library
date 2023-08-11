@@ -29,25 +29,12 @@ library/
 
 #### Setup and Run
 
-1. **Database Setup**: Ensure you have PostgreSQL installed and running. Modify the `connection.go` file inside the `database` directory to configure the correct connection parameters for your PostgreSQL instance. For simplicity to use current implementation, set the DATABASE_URL with ```export DATABASE_URL="postgres://user:password@localhost:5432/library?sslmode=disable"``` on unix/git bash, or the corresponding command for macOS.
-
-2. **Dependencies**: Navigate to the root directory (`library/`) and run:
-    ```bash
-    go mod tidy
+1. **Run services**: 
+    ```
+    docker-compose up --build 
     ```
 
-3. **Run the API**: From the root directory (`library/`), run:
-    ```bash
-    go run main.go
-    ```
-
-4. The API should now be running on `http://localhost:8080`.
-
-5. **Run logging_test**: Alternatively, From the root directory (`library/`), run:
-    ```bash
-    go test ./tests
-    ```
-
+2. The API should now be running on `http://localhost:8080`.
 ---
 
 #### API Endpoints
@@ -113,6 +100,4 @@ library/
 ---
 #### Improvement 1
 For the sake of simplicity, the handlers just connect to the database setup in `database/connection.go`. However, for scalable solutions and better testing, this can be adjusted to have the handlers accept a database as an argument. This allows easier swapping between various real and test/mock databases.
----
-#### Improvement 2
-Another improvement is to deploy the entire environment in Docker and/or use an orchestration tool like Kubernetes (k8s).
+
